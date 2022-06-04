@@ -17,3 +17,17 @@ def compute_metrics(eval_pred):
 
   # 'micro', 'macro', etc. are for multi-label classification. If you are running a binary classification, leave it as default or specify "binary" for average
   return metric.compute(predictions=predictions, references=references, average="micro")  
+
+
+# rmse
+from sklearn.metrics import mean_squared_error
+
+# Create Metrics
+def compute_metrics(eval_pred):
+
+  predictions, references = eval_pred
+  predictions = np.argmax(predictions, axis=1)
+
+  rmse = mean_squared_error(references, predictions, squared=False)
+
+  return {'rmse': rmse}

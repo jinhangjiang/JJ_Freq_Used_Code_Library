@@ -1,6 +1,9 @@
 # f1
 def compute_metrics(eval_pred):
-
+  
+  from datasets import load_metric
+  metric = load_metric(metrics_name)
+  
   predictions, references = eval_pred
   predictions = np.argmax(predictions, axis=1) # multi-classification
 

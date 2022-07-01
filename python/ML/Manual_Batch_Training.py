@@ -1,3 +1,4 @@
+from tqdm import tqdm_notebook
 batchsize = round(len(df) / 100)
 temp_df = pd.DataFrame()
 
